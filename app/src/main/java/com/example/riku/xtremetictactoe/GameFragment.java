@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GameFragment extends Fragment {
 
@@ -86,10 +85,7 @@ public class GameFragment extends Fragment {
                         // If the winner is player 1
                         Log.d(TAG, "OnClick, we found a winner, player 1!");
                         mGameState = "Won";
-                        //Toast.makeText(getActivity(), "Player 1 wins!", Toast.LENGTH_LONG).show();
-                        FragmentManager fm = getActivity().getSupportFragmentManager();
-                        GameOverDialog dialog = new GameOverDialog();
-                        dialog.show(fm, DIALOG_GAME_OVER);
+                        showGameOverDialog();
                         mAudioPlayer.stopTickTock();
                         mAudioPlayer.playMusic(getActivity());
                         }
@@ -97,14 +93,14 @@ public class GameFragment extends Fragment {
                         // If the winner is player 2
                         Log.d(TAG, "OnClick, we found a winner, player 2!");
                         mGameState = "Won";
-                        Toast.makeText(getActivity(), "Player 2 wins!", Toast.LENGTH_LONG).show();
+                        showGameOverDialog();
                         mAudioPlayer.stopTickTock();
                         mAudioPlayer.playMusic(getActivity());
                     }
                     if ((mPotentialWinnter).equals("Tie")) {
                         // It's a tie
                         Log.d(TAG, "OnClick, a tie happened.");
-                        Toast.makeText(getActivity(), "It's an extreme tie!", Toast.LENGTH_LONG).show();
+                        showGameOverDialog();
                         mGameState = "Tie";
                         mAudioPlayer.stopTickTock();
                     }
@@ -134,7 +130,13 @@ public class GameFragment extends Fragment {
         return v;
     }
 
-    // Stop the music/ticktock when the activity is destroyed
+    private void showGameOverDialog() {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        GameOverDialog dialog = new GameOverDialog();
+        dialog.show(fm, DIALOG_GAME_OVER);
+    }
+
+    // Stop the music/ticktock sound when the activity is destroyed
     @Override
     public void onDestroy() {
         super.onDestroy();
