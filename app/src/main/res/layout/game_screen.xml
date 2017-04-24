@@ -19,34 +19,18 @@
             android:gravity="center">
             <ImageButton
                 android:id="@+id/button_a1"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/GameButtonStyle"
                 android:layout_marginLeft="4dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/emptybox"/>
+                android:layout_marginTop="4dp" />
             <ImageButton
                 android:id="@+id/button_a2"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/emptybox"/>
+                style="@style/GameButtonStyle"
+                android:layout_marginTop="4dp" />
             <ImageButton
                 android:id="@+id/button_a3"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
+                style="@style/GameButtonStyle"
                 android:layout_marginRight="4dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="4dp"
-                android:src="@drawable/emptybox"/>
+                android:layout_marginTop="4dp" />
          </TableRow>
 
         <!-- Box row 2 -->
@@ -55,34 +39,15 @@
             android:gravity="center">
             <ImageButton
                 android:id="@+id/button_b1"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="4dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/emptybox"/>
+                style="@style/GameButtonStyle"
+                android:layout_marginLeft="4dp" />
             <ImageButton
                 android:id="@+id/button_b2"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/emptybox"/>
+                style="@style/GameButtonStyle"/>
             <ImageButton
                 android:id="@+id/button_b3"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="2dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/emptybox"/>
+                style="@style/GameButtonStyle"
+                android:layout_marginRight="4dp"/>
          </TableRow>
 
         <!-- Box row 3 -->
@@ -91,34 +56,18 @@
             android:gravity="center">
             <ImageButton
                 android:id="@+id/button_c1"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                style="@style/GameButtonStyle"
                 android:layout_marginLeft="4dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/emptybox"/>
+                android:layout_marginBottom="4dp"/>
             <ImageButton
                 android:id="@+id/button_c2"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/emptybox"/>
+                style="@style/GameButtonStyle"
+                android:layout_marginBottom="4dp"/>
             <ImageButton
                 android:id="@+id/button_c3"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
+                style="@style/GameButtonStyle"
                 android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                android:layout_marginTop="2dp"
-                android:src="@drawable/emptybox"/>
+                android:layout_marginBottom="4dp"/>
         </TableRow>
 
         <!--The footer-->
@@ -128,25 +77,13 @@
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/game_footer_player1_textview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                style="@style/PlayerTextViewStyle"
                 android:textStyle="bold|italic"
-                android:layout_weight="1"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
                 android:text="@string/player1_turn" />
             <TextView
                 android:id="@+id/game_footer_player2_textview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                style="@style/PlayerTextViewStyle"
                 android:gravity="right"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
                 android:text="@string/player2" />
         </TableRow>
 
