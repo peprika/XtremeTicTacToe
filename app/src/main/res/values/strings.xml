@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">XtremeTicTacToe</string>
+    <string name="new_game">New Game</string>
+    <string name="player1">Player 1</string>
+    <string name="player2">Player 2</string>
+    <string name="player1_turn">Player 1 &lt;&lt;&lt;</string>
+    <string name="player2_turn">&gt;&gt;&gt; Player 2</string>
+    <string name="copyright">© Riku Pepponen 2017</string>
+</resources>
