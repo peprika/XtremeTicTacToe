@@ -7,6 +7,7 @@ package com.example.riku.xtremetictactoe;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import android.widget.Toast;
 public class GameFragment extends Fragment {
 
     private static final String TAG = "GameFragment"; //for logging
+
+    private static final String DIALOG_GAME_OVER = "game_over";
 
     // The basic declarations
     public static int[] buttonIds = new int[]{R.id.button_a1, R.id.button_a2, R.id.button_a3,
@@ -83,7 +86,10 @@ public class GameFragment extends Fragment {
                         // If the winner is player 1
                         Log.d(TAG, "OnClick, we found a winner, player 1!");
                         mGameState = "Won";
-                        Toast.makeText(getActivity(), "Player 1 wins!", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getActivity(), "Player 1 wins!", Toast.LENGTH_LONG).show();
+                        FragmentManager fm = getActivity().getSupportFragmentManager();
+                        GameOverDialog dialog = new GameOverDialog();
+                        dialog.show(fm, DIALOG_GAME_OVER);
                         mAudioPlayer.stopTickTock();
                         mAudioPlayer.playMusic(getActivity());
                         }
