@@ -25,11 +25,14 @@ public class StartScreenFragment extends Fragment {
     public ImageView mAppLogoView;
     public Button mNewGameButton;
     public TextView mCopyrightTextView;
+    private AudioPlayer mAudioPlayer = new AudioPlayer();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "StartScreenFragment onCreate() called");
+
+        mAudioPlayer.playMusic(getActivity());
     }
 
     @Override
@@ -44,6 +47,7 @@ public class StartScreenFragment extends Fragment {
         mNewGameButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), GameActivity.class);
+                mAudioPlayer.stopMusic();
                 startActivity(i);
             }
         });
@@ -53,5 +57,12 @@ public class StartScreenFragment extends Fragment {
 
         // Always return the view
         return v;
+    }
+
+    // Stop the music when the activity is destroyed
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mAudioPlayer.stopMusic();
     }
 }

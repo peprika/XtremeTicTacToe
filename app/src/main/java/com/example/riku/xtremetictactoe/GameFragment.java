@@ -76,6 +76,7 @@ public class GameFragment extends Fragment {
                     // Check if there's a win/tie
                     // TODO: Clean this up, and what happens when the game ends?
                     // TODO: Disable buttons after the game ends
+
                     if ((mPotentialWinnter).equals("Player 1")) {
                         // If the winner is player 1
                         Log.d(TAG, "OnClick, we found a winner, player 1!");
