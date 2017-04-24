@@ -24,4 +24,18 @@ public class AudioPlayer {
             mMediaPlayer = null;
         }
     }
+
+    public void playTickTock(Context c) {
+        stopMusic();
+        mMediaPlayer = MediaPlayer.create(c, R.raw.ticktock);
+        mMediaPlayer.setLooping(true);
+        mMediaPlayer.start();
+    }
+
+    public void stopTickTock() {
+        if (mMediaPlayer != null) {
+            mMediaPlayer.release();
+            mMediaPlayer = null;
+        }
+    }
 }

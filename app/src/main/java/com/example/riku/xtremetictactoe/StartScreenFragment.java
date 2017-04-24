@@ -18,10 +18,6 @@ import android.widget.TextView;
 
 public class StartScreenFragment extends Fragment {
 
-//TODO: BACKGROUND MUSIC
-
-    private static final String TAG = "StartScreenFragment"; // for logging
-
     public ImageView mAppLogoView;
     public Button mNewGameButton;
     public TextView mCopyrightTextView;
@@ -30,7 +26,6 @@ public class StartScreenFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "StartScreenFragment onCreate() called");
 
         mAudioPlayer.playMusic(getActivity());
     }

@@ -31,6 +31,7 @@ public class GameFragment extends Fragment {
     public int mCurrentPlayer;
     public String mGameState;
     public String mPotentialWinnter;
+    private AudioPlayer mAudioPlayer = new AudioPlayer();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class GameFragment extends Fragment {
         setRetainInstance(true);
         GameLogic.initalizeGame();
         mGameState = "Start";
+        mAudioPlayer.playTickTock(getActivity());
     }
 
     @Override
@@ -82,18 +84,23 @@ public class GameFragment extends Fragment {
                         Log.d(TAG, "OnClick, we found a winner, player 1!");
                         mGameState = "Won";
                         Toast.makeText(getActivity(), "Player 1 wins!", Toast.LENGTH_LONG).show();
+                        mAudioPlayer.stopTickTock();
+                        mAudioPlayer.playMusic(getActivity());
                         }
                     if ((mPotentialWinnter).equals("Player 2")) {
                         // If the winner is player 2
                         Log.d(TAG, "OnClick, we found a winner, player 2!");
                         mGameState = "Won";
                         Toast.makeText(getActivity(), "Player 2 wins!", Toast.LENGTH_LONG).show();
+                        mAudioPlayer.stopTickTock();
+                        mAudioPlayer.playMusic(getActivity());
                     }
                     if ((mPotentialWinnter).equals("Tie")) {
                         // It's a tie
                         Log.d(TAG, "OnClick, a tie happened.");
                         Toast.makeText(getActivity(), "It's an extreme tie!", Toast.LENGTH_LONG).show();
                         mGameState = "Tie";
+                        mAudioPlayer.stopTickTock();
                     }
 
                     // If there's no win/tie, let the other player have a go
@@ -121,4 +128,11 @@ public class GameFragment extends Fragment {
         return v;
     }
 
+    // Stop the music/ticktock when the activity is destroyed
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mAudioPlayer.stopMusic();
+        mAudioPlayer.stopTickTock();
+    }
 }
