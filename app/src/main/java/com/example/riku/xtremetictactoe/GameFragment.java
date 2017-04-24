@@ -30,7 +30,7 @@ public class GameFragment extends Fragment {
     public TextView mPlayer2Textview;
     public int mCurrentPlayer;
     public String mGameState;
-    public String mPotentialWinnter;
+    public String mPotentialWinner;
     private AudioPlayer mAudioPlayer = new AudioPlayer();
 
     @Override
@@ -73,13 +73,13 @@ public class GameFragment extends Fragment {
                     AbstractButton.setClickable(false);
 
                     // Set the box value and check if there's a winner
-                    mPotentialWinnter = GameLogic.checkIfWin(GameLogic.setBoxValue(buttonReference));
+                    mPotentialWinner = GameLogic.checkIfWin(GameLogic.setBoxValue(buttonReference));
 
                     // Check if there's a win/tie
                     // TODO: Clean this up, and what happens when the game ends?
                     // TODO: Disable buttons after the game ends
 
-                    if ((mPotentialWinnter).equals("Player 1")) {
+                    if ((mPotentialWinner).equals("Player 1")) {
                         // If the winner is player 1
                         Log.d(TAG, "OnClick, we found a winner, player 1!");
                         mGameState = "Won";
@@ -87,7 +87,7 @@ public class GameFragment extends Fragment {
                         mAudioPlayer.stopTickTock();
                         mAudioPlayer.playMusic(getActivity());
                         }
-                    if ((mPotentialWinnter).equals("Player 2")) {
+                    if ((mPotentialWinner).equals("Player 2")) {
                         // If the winner is player 2
                         Log.d(TAG, "OnClick, we found a winner, player 2!");
                         mGameState = "Won";
@@ -95,7 +95,7 @@ public class GameFragment extends Fragment {
                         mAudioPlayer.stopTickTock();
                         mAudioPlayer.playMusic(getActivity());
                     }
-                    if ((mPotentialWinnter).equals("Tie")) {
+                    if ((mPotentialWinner).equals("Tie")) {
                         // It's a tie
                         Log.d(TAG, "OnClick, a tie happened.");
                         Toast.makeText(getActivity(), "It's an extreme tie!", Toast.LENGTH_LONG).show();
